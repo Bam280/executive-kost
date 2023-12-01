@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\PostManage;
 use Illuminate\Support\Str;
+use Intervention\Image\Facades\Image;
 
 
 class PostManageController extends Controller
@@ -175,7 +176,12 @@ class PostManageController extends Controller
         if ($request->hasFile('picture')) {
             $file = $request->file('picture');
             $filename = time() . '.' . $file->getClientOriginalExtension();
-            $file->move('images/blogs', $filename);
+            $image = Image::make($file);
+            $image->resize(500, 500, function ($constraint) {
+                $constraint->aspectRatio();
+                $constraint->upsize();
+            });
+            $image->encode('png', 80)->save('images/blogs/' . $filename);
         } else {
             $filename = 'default.jpg';
         }

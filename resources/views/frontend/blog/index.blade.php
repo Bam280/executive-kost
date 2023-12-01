@@ -26,10 +26,10 @@
                 <div class="col-lg-24">
                     <div class="row row-cols-4 row-cols-lg-4">
                         @foreach ($posts as $p)
-                            <div class="card btn ml-5 mb-3" data-bs-toggle="modal"
+                            <div class="card btn ml-5 mb-3" data-bs-toggle="modal" style="width: 300px; height: 450px;"
                                 href="#exampleModalToggle{{ $p->id }}">
                                 <img src="{{ asset('images') }}/blogs/{{ $p->picture }}" class="card-img-top "
-                                    alt="...">
+                                    alt="..." style="width: 100%; height: 274px;">
                                 <div class="card-body">
                                     <div class="container">
                                         <h4 class="card-title">{{ Str::limit($p->namaKos, 45) }}</h4>
@@ -45,10 +45,6 @@
                                         </div>
                                         <hr>
                                         <p class="card-text">{{ Str::limit($p->address, 25) }}</p>
-                                        <div class="col">
-                                            <span class="badge text-bg-info"
-                                                style="size: 20em">{{ $p->region }}</span>
-                                        </div>
                                         {{-- <a href="#" class="btn btn-primary">Go somewhere</a> --}}
                                     </div>
                                 </div>
@@ -73,7 +69,8 @@
                                                     <div class="col">
                                                         <div class="row mb-2">
                                                             <img src="{{ asset('images') }}/blogs/{{ $p->picture }}"
-                                                                class="card-img-top" alt="...">
+                                                                class="card-img-top" alt="..."
+                                                                style="width: 550px; height: 550px;">
                                                         </div>
                                                         <div class="row mb-2">
                                                             {{-- <a type="button" class="btn btn-success btn-lg" href="{{ $p->maps }}">Lokasi Tempat</a> --}}
@@ -292,7 +289,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="row">
+                                                        <div class="row align-items-end">
                                                             <a type="button" class="btn btn-danger btn-lg"
                                                                 href="https://wa.me/<?php echo $p->pemilik->noTelp; ?>?text=Halo%20apakah%20untuk%20<?php echo $p->namaKos; ?>%20masih%20tersedia%3F">Hubungi</a>
                                                         </div>
