@@ -106,13 +106,13 @@
                                                         <select class="form-select" id="category_id"
                                                             aria-label="Default select example" name="jenisKos">
                                                             <option value="Laki - laki"
-                                                                {{ old('jenisKos', $w->category_id) == 'Laki - laki' ? 'selected' : '' }}>
+                                                                {{ old('jenisKos', $w->jenisKos) == 'Laki - laki' ? 'selected' : '' }}>
                                                                 Laki - laki</option>
                                                             <option value="Perempuan"
-                                                                {{ old('jenisKos', $w->category_id) == 'Perempuan' ? 'selected' : '' }}>
+                                                                {{ old('jenisKos', $w->jenisKos) == 'Perempuan' ? 'selected' : '' }}>
                                                                 Perempuan</option>
                                                             <option value="Campur"
-                                                                {{ old('jenisKos', $w->category_id) == 'Campur' ? 'selected' : '' }}>
+                                                                {{ old('jenisKos', $w->jenisKos) == 'Campur' ? 'selected' : '' }}>
                                                                 Campur</option>
                                                         </select>
                                                     </div>
