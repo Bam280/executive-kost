@@ -333,7 +333,7 @@
                                                         <label for="formFileSm" class="form-label">Gambar Kost</label>
                                                         <input class="form-control form-control-sm" id="formFileSm"
                                                             type="file" accept="image/jpg, image/jpeg, image/png"
-                                                            name="picture" value="{{ $w->picture }}">
+                                                            name="picture" value="">
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-danger"

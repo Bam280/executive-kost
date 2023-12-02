@@ -32,7 +32,7 @@
                                     alt="..." style="width: 100%; height: 274px;">
                                 <div class="card-body">
                                     <div class="container">
-                                        <h4 class="card-title">{{ Str::limit($p->namaKos, 45) }}</h4>
+                                        <h5 class="card-title">{{ Str::limit($p->namaKos, 20) }}</h5>
                                         <div class="row">
                                             <div class="col">
                                                 <span class="badge text-bg-success"><i class="bi bi-cash"></i>
@@ -57,8 +57,8 @@
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h1 class="modal-title fs-5 "
-                                                id="exampleModalToggle{{ $p->id }}Label">{{ $p->title }}
+                                            <h1 class="modal-title fs-5 ms-3"
+                                                id="exampleModalToggle{{ $p->id }}Label">{{ $p->namaKos }}
                                             </h1>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
@@ -132,7 +132,7 @@
                                                                     <hr style="border: 0.5px solid #F86D08;">
                                                                     <div class="row">
                                                                         <div class="col-4">
-                                                                            <p class="card-text text-center">Deskripsi :
+                                                                            <p class="card-text text-start">Deskripsi :
                                                                             </p>
                                                                         </div>
                                                                         <div class="col">
@@ -162,7 +162,7 @@
                                                                     <div class="row">
                                                                         <div class="col-4">
                                                                             <p class="card-text text-start"
-                                                                                style="font-size: 13px">Jumlah Kamar
+                                                                                style="font-size: 12px">Jumlah Kamar
                                                                                 Mandi: </p>
                                                                         </div>
                                                                         <div class="col text-start">
@@ -224,7 +224,7 @@
                                                                     <div class="row">
                                                                         <div class="col-3">
                                                                             <p class="card-text"
-                                                                                style="font-size: 14px">Dekat dengan:
+                                                                                style="font-size: 13px">Dekat dengan:
                                                                             </p>
                                                                         </div>
                                                                         <div class="col">
@@ -236,7 +236,8 @@
                                                         </div>
                                                         {{-- Card Review --}}
                                                         <div class="row mb-2">
-                                                            <div class="card">
+                                                            <div class="card"
+                                                                style="height: 180px; overflow-y: auto;">
                                                                 <div class="card-body">
                                                                     <div class="list-group">
                                                                         @foreach ($p->review as $r)

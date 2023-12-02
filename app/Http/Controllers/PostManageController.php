@@ -84,9 +84,9 @@ class PostManageController extends Controller
         if ($request->hasFile('picture')) {
             $file = $request->file('picture');
             $filename = time() . '.' . $file->getClientOriginalExtension();
-            $file->move('images/blogs', $filename);
+            $file->move('images/blogs/', $filename);
         } else {
-            $filename = 'default.jpg';
+            $filename = 'default.png';
         }
         
         $mapsOlah = explode("\"", $mapsInput)[1];
@@ -172,18 +172,19 @@ class PostManageController extends Controller
         // $checkbox->fasilitas_sekitar = $checkboxString3;
 
         // Hanlde up Photo
-        
+        $post = PostManage::findOrFail($id);
+
         if ($request->hasFile('picture')) {
             $file = $request->file('picture');
             $filename = time() . '.' . $file->getClientOriginalExtension();
-            $image = Image::make($file);
-            $image->resize(500, 500, function ($constraint) {
-                $constraint->aspectRatio();
-                $constraint->upsize();
-            });
-            $image->encode('png', 80)->save('images/blogs/' . $filename);
-        } else {
-            $filename = 'default.jpg';
+            $file->move('images/blogs/', $filename);
+            // $image = Image::make($file);
+            // $image->resize(500, 500, function ($constraint) {
+            //     $constraint->aspectRatio();
+            //     $constraint->upsize();
+            // });
+            // $image->encode('png', 80)->save('images/blogs/' . $filename);
+            $post->picture = $filename;
         }
         
         $mapsOlah = explode("\"", $mapsInput)[1];
@@ -209,14 +210,13 @@ class PostManageController extends Controller
 
 
 
-        $post = PostManage::findOrFail($id);
+        
         $post->namaKos = $request->input('namaKos');
         $post->desc = $request->input('desc');
         $post->jenisKos = $request->input('jenisKos');
         $post->jumLantai = $request->input('max_lantai');
         $post->jumKamar = $request->input('max_kamarT');
         $post->jumKamarMandi = $request->input('max_kamarM');
-        $post->picture = $filename;
         $post->jalurTransport = $checkboxString0;
         $post->fasilitas_kamar = $checkboxString1;
         $post->fasilitas_sekitar = $checkboxString3;
