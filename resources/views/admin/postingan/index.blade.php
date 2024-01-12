@@ -47,8 +47,8 @@
                         <tbody>
 
                             @php
-                                $posts = \App\PostManage::all();
-
+                                $nik_user = auth()->user()->nik;
+                                $posts = \App\PostManage::where('nik_user', $nik_user)->get();
                             @endphp
                             @foreach ($posts as $w)
                                 @php
